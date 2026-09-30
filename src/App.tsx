@@ -55,7 +55,7 @@ export const App: React.FC = () => {
         {/* Section 01: DUDU DOSSIER 🗂️ (Interactive Employee ID Card) */}
         <DuduDossierSection
           onOpenPhotoManager={() => setIsPhotoManagerOpen(true)}
-          photoUrl={photos[0]?.url || SITE_CONFIG.duduDossier.photoUrl}
+          photoUrl={SITE_CONFIG.duduDossier.photoUrl}
         />
 
         {/* Section 02: WHY DUDU? (Department Investigation Cards) */}
