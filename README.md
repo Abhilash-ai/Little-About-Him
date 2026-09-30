@@ -1,5 +1,9 @@
 # DEPARTMENT OF HAPPINESS 🤍
 
+[![Live Website](https://img.shields.io/badge/Live%20Website-something--spcl.vercel.app-E85D75?style=for-the-badge&logo=vercel&logoColor=white)](https://something-spcl.vercel.app/)
+
+🔗 **Live Website**: **[https://something-spcl.vercel.app/](https://something-spcl.vercel.app/)**
+
 A special digital experience created by **Bubu (Abhilash)** for **Dudu (Prabhat)** celebrating their **6-month anniversary** (`08 · September · 2026`) and Boyfriend's Day.
 
 > **“Because Dudu deserves his own department.”**  
