@@ -4,7 +4,7 @@ import { defineConfig } from 'vite'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: './',
+  base: process.env.VERCEL ? '/' : './',
   server: {
     port: 5180,
     strictPort: false,
