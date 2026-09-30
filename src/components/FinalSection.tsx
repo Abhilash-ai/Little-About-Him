@@ -102,21 +102,25 @@ export const FinalSection: React.FC<FinalSectionProps> = ({ onRestart }) => {
           </motion.div>
 
           {/* Playful Stamp: "Usual Bubu behaviour™" */}
-          <motion.div
+          <motion.button
+            type="button"
             initial={{ opacity: 0, rotate: -6, scale: 0.9 }}
             whileInView={{ opacity: 1, rotate: -6, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.8 }}
-            className="rubber-stamp select-none text-xs sm:text-sm font-extrabold mb-8 cursor-pointer hover:scale-105 active:scale-95 transition-transform"
+            className="rubber-stamp select-none text-xs sm:text-sm font-extrabold mb-8 cursor-pointer hover:scale-105 active:scale-95 transition-transform focus-visible:ring-2 focus-visible:ring-[#E85D75] focus-visible:outline-none"
             onClick={handleHugTap}
+            aria-label="Usual Bubu behaviour stamp, tap for celebration"
             title="Click to seal Bubu's behaviour"
           >
             {punchline.behaviorStamp}
-          </motion.div>
+          </motion.button>
 
           {/* Subtle Dudu-Bubu hugging micro-interaction */}
-          <motion.div
+          <motion.button
+            type="button"
             onClick={handleHugTap}
+            aria-label="Bubu and Dudu cuddle sticker, tap for hearts"
             animate={{
               y: [-3, 3, -3],
               scale: isHugged ? [1, 1.15, 1] : 1,
@@ -125,18 +129,18 @@ export const FinalSection: React.FC<FinalSectionProps> = ({ onRestart }) => {
               y: { repeat: Infinity, duration: 3.5, ease: "easeInOut" },
               scale: { duration: 0.35, ease: "easeOut" },
             }}
-            className="w-24 h-24 sm:w-28 sm:h-28 mx-auto rounded-2xl overflow-hidden bg-white/80 border-2 border-white shadow-md cursor-pointer relative group p-1 mb-6"
+            className="w-24 h-24 sm:w-28 sm:h-28 mx-auto rounded-2xl overflow-hidden bg-white/80 border-2 border-white shadow-md cursor-pointer relative group p-1 mb-6 block focus-visible:ring-2 focus-visible:ring-[#E85D75] focus-visible:outline-none"
             title="Bubu & Dudu (Tap for confetti!)"
           >
             <img
-              src="/bubu_dudu_hug.jpg"
+              src="./bubu_dudu_hug.jpg"
               alt="Dudu and Bubu hugging"
               className="w-full h-full object-cover rounded-xl"
             />
             <div className="absolute -top-1 -right-1 p-1 bg-white rounded-full shadow-xs">
               <Heart className="w-3 h-3 text-[#E85D75] fill-current animate-pulse" />
             </div>
-          </motion.div>
+          </motion.button>
 
           {/* Closing & Signature */}
           <div className="pt-6 border-t border-white/80 flex flex-col items-center">
@@ -151,10 +155,12 @@ export const FinalSection: React.FC<FinalSectionProps> = ({ onRestart }) => {
 
         {/* Start over / Replay button */}
         <motion.button
+          type="button"
           onClick={handleRestartClick}
+          aria-label="Start over from the beginning"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="btn-glass min-h-[48px] px-8 py-3.5 rounded-full text-neutral-900 font-sans text-xs sm:text-sm font-bold tracking-widest uppercase cursor-pointer flex items-center gap-2.5 shadow-md mb-8 active:scale-95"
+          className="btn-glass min-h-[48px] px-8 py-3.5 rounded-full text-neutral-900 font-sans text-xs sm:text-sm font-bold tracking-widest uppercase cursor-pointer flex items-center gap-2.5 shadow-md mb-8 active:scale-95 focus-visible:ring-2 focus-visible:ring-[#E85D75] focus-visible:outline-none"
         >
           <RotateCcw className="w-3.5 h-3.5 text-[#E85D75] group-hover:-rotate-90 transition-transform duration-500" />
           <span>Start over ↻</span>

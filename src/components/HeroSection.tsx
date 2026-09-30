@@ -168,9 +168,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onExplore }) => {
         {/* CTA Button */}
         <motion.button
           onClick={handleEnter}
+          aria-label={dept.heroCta}
           whileHover={{ scale: 1.04 }}
           whileTap={{ scale: 0.96 }}
-          className="btn-glass px-8 sm:px-10 py-4 rounded-full text-neutral-900 font-sans font-bold text-xs sm:text-sm tracking-widest uppercase cursor-pointer flex items-center gap-2.5 mt-2 group shadow-sm"
+          className="btn-glass min-h-[48px] px-8 sm:px-10 py-4 rounded-full text-neutral-900 font-sans font-bold text-xs sm:text-sm tracking-widest uppercase cursor-pointer flex items-center gap-2.5 mt-2 group shadow-sm focus-visible:ring-2 focus-visible:ring-[#E85D75] focus-visible:outline-none"
         >
           <span>{dept.heroCta}</span>
           <ArrowRight className="w-4 h-4 text-[#E85D75] group-hover:translate-x-1 transition-transform" />

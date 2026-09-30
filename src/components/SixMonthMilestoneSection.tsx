@@ -63,9 +63,12 @@ export const SixMonthMilestoneSection: React.FC = () => {
         <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 tape-translucent w-28 h-6 rounded-sm z-10" />
 
         {/* Card Header / Fold Flap */}
-        <div
+        <button
+          type="button"
           onClick={toggleLetter}
-          className="p-6 sm:p-8 bg-white/50 backdrop-blur-md border-b border-white/70 flex items-center justify-between cursor-pointer group hover:bg-white/75 transition-colors"
+          aria-expanded={isOpen}
+          aria-label={isOpen ? "Fold letter to Sir ji" : "Unfold and read letter to Sir ji"}
+          className="w-full text-left p-6 sm:p-8 bg-white/50 backdrop-blur-md border-b border-white/70 flex items-center justify-between cursor-pointer group hover:bg-white/75 transition-colors focus-visible:ring-2 focus-visible:ring-[#E85D75] focus-visible:outline-none"
         >
           <div className="flex items-center gap-3.5">
             <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-[#FFDAE0] to-[#FFE5D9] flex items-center justify-center text-[#E85D75] shadow-xs">
@@ -86,14 +89,14 @@ export const SixMonthMilestoneSection: React.FC = () => {
             </div>
           </div>
 
-          <button className="p-2 rounded-full text-neutral-400 group-hover:text-neutral-900 transition-colors">
+          <span aria-hidden="true" className="p-2 rounded-full text-neutral-400 group-hover:text-neutral-900 transition-colors">
             <ChevronDown
               className={`w-5 h-5 transition-transform duration-300 ${
                 isOpen ? 'rotate-180' : ''
               }`}
             />
-          </button>
-        </div>
+          </span>
+        </button>
 
         {/* Letter Body */}
         <AnimatePresence initial={false}>

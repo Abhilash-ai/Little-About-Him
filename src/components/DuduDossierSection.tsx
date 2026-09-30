@@ -186,15 +186,17 @@ export const DuduDossierSection: React.FC<DuduDossierSectionProps> = ({
               </div>
             </div>
 
-            <motion.div
+            <motion.button
+              type="button"
               onClick={handleSealClick}
+              aria-label="Stamp Department approval on Dudu's security pass"
               animate={isStamped ? { scale: [1, 1.25, 1], rotate: [-10, -4, -8] } : { rotate: -8 }}
               transition={{ duration: 0.3 }}
-              className="rubber-stamp text-[11px] sm:text-xs font-extrabold cursor-pointer hover:scale-105 active:scale-95 transition-transform"
+              className="rubber-stamp text-[11px] sm:text-xs font-extrabold cursor-pointer hover:scale-105 active:scale-95 transition-transform focus-visible:ring-2 focus-visible:ring-[#E85D75] focus-visible:outline-none"
               title="Click to stamp approval"
             >
               {dossier.officialSeal}
-            </motion.div>
+            </motion.button>
           </div>
         </motion.div>
       </div>

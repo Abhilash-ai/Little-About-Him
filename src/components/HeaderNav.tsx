@@ -92,7 +92,8 @@ export const HeaderNav: React.FC = () => {
           <div className="flex items-center gap-1.5 p-1 rounded-full bg-white/75 backdrop-blur-xl border border-white/90 shadow-[0_4px_20px_rgba(232,160,175,0.15)]">
             <button
               onClick={togglePlay}
-              className="min-h-[44px] sm:min-h-0 flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-900 hover:bg-neutral-800 text-white text-xs font-sans font-medium transition-all cursor-pointer shadow-xs active:scale-95"
+              aria-label={isPlaying ? "Pause music" : "Play soft piano chimes"}
+              className="min-h-[44px] sm:min-h-0 flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-900 hover:bg-neutral-800 text-white text-xs font-sans font-medium transition-all cursor-pointer shadow-xs active:scale-95 focus-visible:ring-2 focus-visible:ring-[#E85D75] focus-visible:outline-none"
               title={isPlaying ? "Pause music" : "Play soft piano chimes"}
             >
               {isPlaying ? (
@@ -115,7 +116,8 @@ export const HeaderNav: React.FC = () => {
             {isPlaying && (
               <button
                 onClick={toggleMute}
-                className="p-1.5 rounded-full text-neutral-500 hover:text-neutral-900 transition-colors cursor-pointer"
+                aria-label={isMuted ? "Unmute music" : "Mute music"}
+                className="p-1.5 rounded-full text-neutral-500 hover:text-neutral-900 transition-colors cursor-pointer focus-visible:ring-2 focus-visible:ring-[#E85D75] focus-visible:outline-none"
                 title={isMuted ? "Unmute" : "Mute"}
               >
                 {isMuted ? <VolumeX className="w-3.5 h-3.5 text-[#E85D75]" /> : <Volume2 className="w-3.5 h-3.5" />}

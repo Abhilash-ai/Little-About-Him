@@ -20,5 +20,8 @@ dist-ssr
 *.suo
 *.ntvs*
 *.njsproj
-*.sln
 *.sw?
+
+# Loose root images (actual photos are located in public/photos/)
+/*.jpeg
+/*.jpg

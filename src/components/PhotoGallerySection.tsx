@@ -72,8 +72,17 @@ export const PhotoGallerySection: React.FC<PhotoGallerySectionProps> = ({
               transition={{ duration: 0.5, delay: index * 0.08 }}
               whileHover={{ y: -8, rotateZ: 0, scale: 1.02 }}
               style={{ rotate: `${tilt}deg` }}
+              role="button"
+              tabIndex={0}
+              aria-label={`View photo: ${photo.caption}`}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  setSelectedPhoto(photo);
+                }
+              }}
               onClick={() => setSelectedPhoto(photo)}
-              className="polaroid-card p-4 pb-6 rounded-2xl cursor-pointer group flex flex-col relative"
+              className="polaroid-card p-4 pb-6 rounded-2xl cursor-pointer group flex flex-col relative focus-visible:ring-2 focus-visible:ring-[#E85D75] focus-visible:outline-none"
             >
               {/* Translucent washi tape accent at top */}
               <div className="absolute -top-3 left-1/2 -translate-x-1/2 tape-translucent w-20 h-5 rounded-sm z-10" />
@@ -90,7 +99,8 @@ export const PhotoGallerySection: React.FC<PhotoGallerySectionProps> = ({
                 {/* Heart Reaction Badge (minimum 44px tap target) */}
                 <button
                   onClick={(e) => toggleLike(e, photo.id)}
-                  className={`absolute top-2 right-2 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full backdrop-blur-md transition-all duration-300 shadow-sm cursor-pointer ${
+                  aria-label={isLiked ? "Remove from Bubu's favorites" : "Save to Bubu's favorites"}
+                  className={`absolute top-2 right-2 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full backdrop-blur-md transition-all duration-300 shadow-sm cursor-pointer focus-visible:ring-2 focus-visible:ring-[#E85D75] focus-visible:outline-none ${
                     isLiked
                       ? 'bg-[#E85D75] text-white scale-105 shadow-[0_0_12px_rgba(232,93,117,0.5)]'
                       : 'bg-white/80 text-neutral-400 hover:text-[#E85D75] hover:bg-white'
@@ -138,7 +148,8 @@ export const PhotoGallerySection: React.FC<PhotoGallerySectionProps> = ({
               {/* Close Button (min 44px tap target) */}
               <button
                 onClick={() => setSelectedPhoto(null)}
-                className="absolute -top-3 -right-3 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full bg-neutral-900 text-white shadow-lg hover:scale-110 active:scale-95 transition-transform cursor-pointer z-10"
+                aria-label="Close photo preview"
+                className="absolute -top-3 -right-3 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full bg-neutral-900 text-white shadow-lg hover:scale-110 active:scale-95 transition-transform cursor-pointer z-10 focus-visible:ring-2 focus-visible:ring-[#E85D75] focus-visible:outline-none"
               >
                 <X className="w-5 h-5" />
               </button>

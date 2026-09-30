@@ -96,8 +96,18 @@ export const WhyDuduSection: React.FC = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.08 }}
               whileHover={{ y: -6 }}
+              role="button"
+              tabIndex={0}
+              aria-expanded={isExpanded}
+              aria-label={`${card.title}. Exhibit ${card.iconTag}. Click or press Enter to ${isExpanded ? 'collapse' : 'reveal'} investigation finding`}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  toggleCard(card.id);
+                }
+              }}
               onClick={() => toggleCard(card.id)}
-              className={`glass-pinterest p-6 sm:p-7 rounded-[2rem] cursor-pointer flex flex-col justify-between transition-all duration-300 relative group overflow-hidden ${style.glow} ${
+              className={`glass-pinterest p-6 sm:p-7 rounded-[2rem] cursor-pointer flex flex-col justify-between transition-all duration-300 relative group overflow-hidden focus-visible:ring-2 focus-visible:ring-[#E85D75] focus-visible:outline-none ${style.glow} ${
                 isExpanded ? 'bg-white/90 ring-2 ring-white shadow-lg' : ''
               }`}
             >

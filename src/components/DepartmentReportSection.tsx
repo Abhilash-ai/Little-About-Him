@@ -135,9 +135,11 @@ export const DepartmentReportSection: React.FC = () => {
         {/* Recalculate Metric Trigger (min-h-[44px] for mobile tap) */}
         <div className="mt-9 pt-6 border-t border-white/80 flex flex-col sm:flex-row items-center justify-between gap-4">
           <button
+            type="button"
             onClick={handleRecalculate}
             disabled={isCalculating}
-            className="btn-glass min-h-[44px] w-full sm:w-auto px-6 py-2.5 rounded-full text-neutral-800 text-xs font-sans font-semibold flex items-center justify-center gap-2 cursor-pointer active:scale-95 transition-transform"
+            aria-label="Recalculate Department stats"
+            className="btn-glass min-h-[44px] w-full sm:w-auto px-6 py-2.5 rounded-full text-neutral-800 text-xs font-sans font-semibold flex items-center justify-center gap-2 cursor-pointer active:scale-95 transition-transform focus-visible:ring-2 focus-visible:ring-[#E85D75] focus-visible:outline-none"
           >
             <RefreshCw className={`w-3.5 h-3.5 text-[#E85D75] ${isCalculating ? 'animate-spin' : ''}`} />
             <span>{isCalculating ? "Auditing metrics..." : "Recalculate Department stats ↻"}</span>
