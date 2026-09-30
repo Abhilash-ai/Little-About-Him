@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+  
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+    background-color: #FAF8F5;
+    color: #382A24;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  button, a {
+    touch-action: manipulation;
+  }
+}
+
+/* Subtle background grain & warm pastel glow */
+.pinterest-bg {
+  background-color: #FAF8F5;
+  background-image: 
+    radial-gradient(at 10% 15%, rgba(255, 218, 224, 0.45) 0px, transparent 50%),
+    radial-gradient(at 90% 25%, rgba(255, 235, 205, 0.4) 0px, transparent 50%),
+    radial-gradient(at 20% 75%, rgba(232, 215, 245, 0.35) 0px, transparent 50%),
+    radial-gradient(at 85% 85%, rgba(210, 240, 230, 0.35) 0px, transparent 50%);
+  background-attachment: fixed;
+}
+
+/* Pinteresty Glassmorphism Cards */
+.glass-pinterest {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.88);
+  box-shadow: 
+    0 20px 40px -15px rgba(232, 160, 175, 0.16),
+    0 2px 8px -2px rgba(180, 120, 130, 0.08),
+    inset 0 1px 1px rgba(255, 255, 255, 0.95);
+}
+
+@media (max-width: 640px) {
+  .glass-pinterest {
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+}
+
+.glass-pinterest-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glass-pinterest-hover:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 
+    0 25px 50px -12px rgba(232, 160, 175, 0.25),
+    0 4px 12px -2px rgba(180, 120, 130, 0.12),
+    inset 0 1px 1px rgba(255, 255, 255, 1);
+}
+
+/* Cute Pinterest Glass Button */
+.btn-glass {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1.5px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 
+    0 10px 25px -5px rgba(232, 120, 140, 0.22),
+    0 2px 6px -1px rgba(0, 0, 0, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-glass:hover {
+  background: rgba(255, 255, 255, 0.95);
+  transform: scale(1.04);
+  box-shadow: 
+    0 15px 30px -5px rgba(232, 120, 140, 0.32),
+    0 4px 10px -2px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+}
+.btn-glass:active {
+  transform: scale(0.97);
+}
+
+/* Pinterest Polaroid Frame */
+.polaroid-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 
+    0 15px 35px -10px rgba(150, 110, 100, 0.15),
+    0 3px 10px -2px rgba(150, 110, 100, 0.08);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.polaroid-card:hover {
+  transform: translateY(-8px) scale(1.02) !important;
+  box-shadow: 
+    0 25px 45px -12px rgba(220, 130, 145, 0.25),
+    0 6px 16px -3px rgba(150, 110, 100, 0.12);
+}
+
+/* Minimal translucent washi tape */
+.tape-translucent {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(4px);
+  border-left: 2px dashed rgba(220, 180, 175, 0.5);
+  border-right: 2px dashed rgba(220, 180, 175, 0.5);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+/* Rubber Stamp */
+.rubber-stamp {
+  border: 2px dashed #E85D75;
+  color: #E85D75;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  transform: rotate(-6deg);
+  display: inline-block;
+  padding: 0.35rem 0.9rem;
+  border-radius: 8px;
+  background: rgba(255, 235, 240, 0.88);
+  box-shadow: 0 2px 8px rgba(232, 93, 117, 0.15);
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Custom minimal scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #E8C5CE;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D96B5B;
+}
