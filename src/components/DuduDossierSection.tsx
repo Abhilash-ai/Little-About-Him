@@ -5,12 +5,10 @@ import { SITE_CONFIG } from '../data/content';
 import { fireSubtleConfetti } from '../utils/confetti';
 
 interface DuduDossierSectionProps {
-  onOpenPhotoManager: () => void;
   photoUrl: string;
 }
 
 export const DuduDossierSection: React.FC<DuduDossierSectionProps> = ({
-  onOpenPhotoManager,
   photoUrl,
 }) => {
   const dossier = SITE_CONFIG.duduDossier;
@@ -108,7 +106,7 @@ export const DuduDossierSection: React.FC<DuduDossierSectionProps> = ({
           {/* Photo & Identity Section */}
           <div className="flex flex-col sm:flex-row items-center gap-5 sm:gap-6 mb-6">
             {/* 3D Photo Frame */}
-            <div className="relative group cursor-pointer" onClick={onOpenPhotoManager} title="Click to update photo">
+            <div className="relative group select-none">
               <div className="w-32 h-40 sm:w-36 sm:h-44 rounded-2xl overflow-hidden bg-neutral-100 border-2 border-white shadow-md relative">
                 <img
                   src={photoUrl}

@@ -9,27 +9,11 @@ import { DepartmentReportSection } from './components/DepartmentReportSection';
 import { SixMonthMilestoneSection } from './components/SixMonthMilestoneSection';
 import { BoyfriendsDaySection } from './components/BoyfriendsDaySection';
 import { FinalSection } from './components/FinalSection';
-import { PhotoUploaderModal } from './components/PhotoUploaderModal';
 import { SITE_CONFIG } from './data/content';
 import type { PhotoItem } from './data/content';
 
 export const App: React.FC = () => {
-  const [photos, setPhotos] = useState<PhotoItem[]>(SITE_CONFIG.photos);
-  const [isPhotoManagerOpen, setIsPhotoManagerOpen] = useState<boolean>(false);
-
-  const handleUpdatePhoto = (id: string, newUrl: string, newCaption?: string) => {
-    setPhotos((prev) =>
-      prev.map((item) =>
-        item.id === id
-          ? {
-              ...item,
-              url: newUrl,
-              ...(newCaption ? { caption: newCaption } : {}),
-            }
-          : item
-      )
-    );
-  };
+  const [photos] = useState<PhotoItem[]>(SITE_CONFIG.photos);
 
   const handleExplore = () => {
     const el = document.getElementById('dossier');
@@ -54,7 +38,6 @@ export const App: React.FC = () => {
 
         {/* Section 01: DUDU DOSSIER 🗂️ (Interactive Employee ID Card) */}
         <DuduDossierSection
-          onOpenPhotoManager={() => setIsPhotoManagerOpen(true)}
           photoUrl={SITE_CONFIG.duduDossier.photoUrl}
         />
 
@@ -67,7 +50,6 @@ export const App: React.FC = () => {
         {/* Section 04: MY FAVOURITE PICTURES OF DUDU 🤍 (Asymmetric Floating Lookbook) */}
         <PhotoGallerySection
           photos={photos}
-          onOpenPhotoManager={() => setIsPhotoManagerOpen(true)}
         />
 
         {/* Section 05: DUDU HAPPINESS REPORT 📊 (SaaS-meets-Cute Dashboard) */}
@@ -82,14 +64,6 @@ export const App: React.FC = () => {
         {/* Section 08: ONE SMALL THING… 🤭 (The Final Reels Punchline & Replay) */}
         <FinalSection onRestart={handleRestart} />
       </main>
-
-      {/* Photo Uploader / Preview Manager Modal */}
-      <PhotoUploaderModal
-        isOpen={isPhotoManagerOpen}
-        onClose={() => setIsPhotoManagerOpen(false)}
-        photos={photos}
-        onUpdatePhoto={handleUpdatePhoto}
-      />
     </div>
   );
 };

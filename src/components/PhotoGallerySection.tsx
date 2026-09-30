@@ -1,17 +1,15 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Settings2, Heart, Camera } from 'lucide-react';
+import { X, Heart, Camera } from 'lucide-react';
 import type { PhotoItem } from '../data/content';
 import { fireSubtleConfetti } from '../utils/confetti';
 
 interface PhotoGallerySectionProps {
   photos: PhotoItem[];
-  onOpenPhotoManager: () => void;
 }
 
 export const PhotoGallerySection: React.FC<PhotoGallerySectionProps> = ({
   photos,
-  onOpenPhotoManager,
 }) => {
   const [selectedPhoto, setSelectedPhoto] = useState<PhotoItem | null>(null);
   const [likedPhotos, setLikedPhotos] = useState<Record<string, boolean>>({});
@@ -56,14 +54,6 @@ export const PhotoGallerySection: React.FC<PhotoGallerySectionProps> = ({
         >
           No couple photos. Just a floating physical lookbook of Dudu curated by Bubu.
         </motion.p>
-
-        <button
-          onClick={onOpenPhotoManager}
-          className="btn-glass min-h-[44px] inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-neutral-700 text-xs font-sans font-medium cursor-pointer active:scale-95 transition-transform"
-        >
-          <Settings2 className="w-4 h-4 text-[#E85D75]" />
-          <span>Preview your own photos of Dudu</span>
-        </button>
       </div>
 
       {/* Asymmetric Pinterest Floating Gallery */}
